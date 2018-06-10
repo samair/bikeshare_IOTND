@@ -126,6 +126,7 @@ def load_data(city, month, day):
         # found groupby could be used, time taken ? TODO
         #df = df.groupby(["day_of_week"]).get_group(day.title())
         df = df[df["day_of_week"] == day.title()]
+    print("*"*5,"Provided data has below columns with unavailable values:")
     print(df.isnull().sum())
     return df
 
@@ -170,8 +171,8 @@ def station_stats(df):
     # display most commonly used start station
     global month_filter
     print("\n >>Most common  ")
-    print("\n >>Start station Used [Month filter:{}]  : "
-        .format(month_filter),df["Start Station"].mode()[0],
+    print("\n >>Start station Used [Month filter:{}, Day Filter:{}]  : "
+        .format(month_filter,day_filter),df["Start Station"].mode()[0],
         ", number of times the stations was used {}".format(df["Start Station"].value_counts().max()))
 
 
