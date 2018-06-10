@@ -23,4 +23,6 @@ Statistics Computed:
   
   # References:
   http://pandas.pydata.org/pandas-docs/version/0.22/generated/pandas.Series.dt.hour.html
-  
+  https://docs.python.org/2/library/datetime.html#strftime-and-strptime-behavior
+  https://stackoverflow.com/questions/22402548/default-values-on-empty-user-input-in-python?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa  
+  https://stackoverflow.com/questions/29832455/merging-and-subtracting-dataframe-columns-in-pandas?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
