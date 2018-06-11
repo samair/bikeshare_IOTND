@@ -252,17 +252,21 @@ def show_raw_data(df):
     rownum_start = 0
     rownum_end = 5
     loop = False
-    print()
     show_data =input("\n Would you like to see raw data as well ?, Enter yes or no [no]:") or "no"
     if show_data == "yes":
         loop = True
+
     while loop:
-        print(df.iloc[rownum_start:rownum_end])
+        # print 5 rows at a tim, df[:] prints till the last element only
+        # even if end is beyond len(df.index)
+        print(df[rownum_start:rownum_end])
         rownum_start +=5
         rownum_end +=5
-        if rownum_end > len(df.index)-1 :
+
+        if rownum_start > len(df.index) :
             print("All data has been printed, thanks!")
             break
+
         continue_show =input("\n Continue printing raw data, 5 rows at a time ?, Enter yes or no [no]:") or "no"
         if continue_show != "yes":
             loop = False
