@@ -245,6 +245,28 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
+def show_raw_data(df):
+    """
+    Routine to show raw data on user request
+    """
+    rownum_start = 0
+    rownum_end = 5
+    loop = False
+    print()
+    show_data =input("\n Would you like to see raw data as well ?, Enter yes or no [no]:") or "no"
+    if show_data == "yes":
+        loop = True
+    while loop:
+        print(df.iloc[rownum_start:rownum_end])
+        rownum_start +=5
+        rownum_end +=5
+        if rownum_end > len(df.index)-1 :
+            print("All data has been printed, thanks!")
+            break
+        continue_show =input("\n Continue printing raw data, 5 rows at a time ?, Enter yes or no [no]:") or "no"
+        if continue_show != "yes":
+            loop = False
+
 
 def main():
     while True:
@@ -255,7 +277,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-
+        show_raw_data(df)
         restart = input('\nWould you like to restart? Enter yes or no [no].\n') or "no"
         if restart.lower() != 'yes':
             break
